@@ -1,0 +1,154 @@
+// Custom --------
+$dark: #2F3E46;
+$primary: #354F52;
+$white:#CAD2C5;
+// Varibles ---
+$green-1: #2F3E46;
+$green-2: #354F52;
+$green-3: #52796F;
+$green-4: #84A98C;
+$green-5: #CAD2C5;
+// Mixings --------
+@mixin center {
+    margin-left: auto;
+    margin-right: auto;
+}
+// Main Styles --------
+header {    
+    position: relative;
+    padding-bottom: 80px;
+    nav {        
+        box-shadow: 0px 3px 5px #000;
+        width: 100%;
+        z-index: 10;
+        .logo {
+            width: 80px;
+        }
+
+        // Settings User
+        #user-settings{
+            left: -68px;
+
+            .figure-list {
+                z-index: -1;
+                background: $white;
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                top: -11px;
+                right: 23px;
+                transform: rotate(45deg);
+            }
+        }
+
+        .tabs li a:hover{
+            border-bottom: solid 5px #fff;
+        }
+
+        // Pestaña activa
+        .active-tab {
+            border-bottom: solid 5px #fff;
+        }
+    }
+
+    // Nav Menu fixed ---------
+    .menu-fixed {
+        background: $dark;
+        position: fixed;
+        z-index: 101;
+        top: 0;
+        left: 0;
+        width: 100%;
+        box-shadow: 0px 3px 5px #000;
+    }
+}
+// General Container ----
+.center {
+    @include center();
+}
+.tab-inicio {
+    .view-main {
+        height: 88vh;
+    }
+    .title-inicio {
+        text-align: center;
+        h1 {
+            font-size: 58px;
+        }
+        p {
+            font-size: 18px;
+            // text-shadow: ;
+        }
+    }
+    #svg-video {
+        width: 80%;
+        height: 80%;
+    }
+
+    @media screen and (min-width: 768px){
+        .title-inicio {
+            margin-left: 30px;
+            text-shadow: 3px 3px 4px $dark;
+            h1 {
+                font-size: 80px;
+            }
+            p {
+                font-size: 25px;
+            }   
+        }
+        // #svg-video {
+        //     width: 80%;
+        //     height: 80%;
+        // }
+    }
+}
+.parallax {
+	position: fixed;
+	top: 0;	
+	transform: translate3d(0, 0, 0);	
+	transform-style: preserve-3d;
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.parallax__container {
+	clip: rect(0, auto, auto, 0);
+	height: 100%;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+// Glide ---
+.glide__arrow {
+    padding: 0 10px;
+    font-size: 20px;
+    color: $white;
+    position: absolute;
+    background: none;
+    border: none;
+    top: 45%;
+
+    &:hover {
+        background: $white;
+        color: $primary;
+        border-radius: 100%;
+    }
+    &:active {
+        padding: 0 8px;
+    }
+}
+
+.glide__arrow--right {
+    right: -25px;
+}
+.glide__arrow--left {
+    left: -25px;
+}
+
+// Imports ----------
+@import"../node_modules/bootstrap/scss/bootstrap.scss";
