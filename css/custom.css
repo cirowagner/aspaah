@@ -43,7 +43,8 @@ header {
   .tab-inicio .title-inicio h1, .tab-inicio .title-inicio .h1 {
     font-size: 58px; }
   .tab-inicio .title-inicio p {
-    font-size: 18px; }
+    font-size: 18px;
+    text-shadow: 3px 3px 4px #2F3E46; }
 
 .tab-inicio #svg-video {
   width: 80%;
@@ -51,8 +52,7 @@ header {
 
 @media screen and (min-width: 768px) {
   .tab-inicio .title-inicio {
-    margin-left: 30px;
-    text-shadow: 3px 3px 4px #2F3E46; }
+    margin-left: 30px; }
     .tab-inicio .title-inicio h1, .tab-inicio .title-inicio .h1 {
       font-size: 80px; }
     .tab-inicio .title-inicio p {
