@@ -2,7 +2,6 @@ header {
   position: relative;
   padding-bottom: 80px; }
   header nav {
-    box-shadow: 0px 3px 5px #000;
     width: 100%;
     z-index: 10; }
     header nav .logo {
@@ -36,27 +35,38 @@ header {
   margin-right: auto; }
 
 .tab-inicio .view-main {
-  height: 88vh; }
+  height: 75vh; }
 
 .tab-inicio .title-inicio {
-  text-align: center; }
+  text-align: center;
+  text-shadow: 1px 1px 2px #2F3E46;
+  margin-top: 0; }
   .tab-inicio .title-inicio h1, .tab-inicio .title-inicio .h1 {
     font-size: 58px; }
   .tab-inicio .title-inicio p {
-    font-size: 18px;
-    text-shadow: 3px 3px 4px #2F3E46; }
+    font-size: 18px; }
 
 .tab-inicio #svg-video {
   width: 80%;
   height: 80%; }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 510px) {
+  .tab-inicio #svg-video {
+    width: 60%;
+    height: 60%; } }
+
+@media screen and (min-width: 992px) {
   .tab-inicio .title-inicio {
-    margin-left: 30px; }
+    margin-top: 20%;
+    margin-left: 50px;
+    text-align: start; }
     .tab-inicio .title-inicio h1, .tab-inicio .title-inicio .h1 {
       font-size: 80px; }
     .tab-inicio .title-inicio p {
-      font-size: 25px; } }
+      font-size: 25px; }
+  .tab-inicio #svg-video {
+    width: 72%;
+    height: 72%; } }
 
 .parallax {
   position: fixed;
@@ -78,26 +88,32 @@ header {
   width: 100%;
   z-index: -1; }
 
-.glide__arrow {
+.container_productos h2, .container_productos .h2 {
+  font-size: 45px; }
+
+.container_productos .card {
+  overflow: hidden; }
+  .container_productos .card .img__slide {
+    display: block;
+    height: 200px; }
+
+.container_productos .glide__arrow {
   padding: 0 10px;
   font-size: 20px;
-  color: #CAD2C5;
   position: absolute;
-  background: none;
   border: none;
-  top: 45%; }
-  .glide__arrow:hover {
-    background: #CAD2C5;
-    color: #354F52;
-    border-radius: 100%; }
-  .glide__arrow:active {
+  top: 45%;
+  background: #354F52;
+  color: #CAD2C5;
+  border-radius: 100%; }
+  .container_productos .glide__arrow:active {
     padding: 0 8px; }
 
-.glide__arrow--right {
-  right: -25px; }
+.container_productos .glide__arrow--right {
+  right: 0; }
 
-.glide__arrow--left {
-  left: -25px; }
+.container_productos .glide__arrow--left {
+  left: 0; }
 
 /*!
  * Bootstrap v5.0.0-beta3 (https://getbootstrap.com/)

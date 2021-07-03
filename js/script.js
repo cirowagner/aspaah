@@ -33,10 +33,16 @@ $("ul.tabs li a").on("click", function(){
 const config = {
 	type: 'carousel',
 	startAt: 1,
-	perView: 3,
+	perView: 4,
 	breakpoints: {
 		600: {
 			perView: 1
+		},
+		840: {
+			perView: 2
+		},
+		1024: {
+			perView: 3
 		}
 	}
 }
