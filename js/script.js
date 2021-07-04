@@ -1,3 +1,8 @@
+window.onload = function(){
+	$("#loader").fadeOut();
+	$("body").removeClass("overflow-hidden");
+}
+
 //----- Efecto Parallax -> Libreria
 new universalParallax().init({
 	speed: 8.0
@@ -47,3 +52,12 @@ const config = {
 	}
 }
 new Glide('.glide', config).mount();
+
+// Cards - Productos
+function mOver(obj) {
+	$(".filtro").css("opacity", "0");
+}
+  
+function mOut(obj) {
+	$(".filtro").css("opacity", ".8");
+}
