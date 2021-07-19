@@ -1,24 +1,35 @@
 // Custom --------
-$dark: #2F3E46;
+$dark: #142627;
 $primary: #354F52;
 $white:#CAD2C5;
+$info: #070d0e;
 // Varibles ---
-$green-1: #2F3E46;
-$green-2: #354F52;
-$green-3: #52796F;
-$green-4: #84A98C;
-$green-5: #CAD2C5;
+// $green-1: #2F3E46;
+// $green-2: #354F52;
+// $green-3: #52796F;
+// $green-4: #84A98C;
+// $green-5: #CAD2C5;
 // Mixings --------
 @mixin center {
     margin-left: auto;
     margin-right: auto;
 }
 
-// Preloader ---
-#loader {
+@mixin font-h2 {
+    font-size: 45px;
+}
+
+.font-h2 {
+    @include font-h2();
+}
+
+// Main Styles --------
+
+// Loader ---
+.loader {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;        
     height: 100vh;
 }
 
@@ -27,8 +38,8 @@ $green-5: #CAD2C5;
     position: relative;
     width: 80px;
     height: 80px;
-  }
-  .lds-facebook div {
+}
+.lds-facebook div {
     z-index: 100;
     display: inline-block;
     position: absolute;
@@ -36,34 +47,36 @@ $green-5: #CAD2C5;
     width: 16px;
     background: #dfc;
     animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-  }
-  .lds-facebook div:nth-child(1) {
+}
+.lds-facebook div:nth-child(1) {
     left: 8px;
     animation-delay: -0.24s;
-  }
-  .lds-facebook div:nth-child(2) {
+}
+.lds-facebook div:nth-child(2) {
     left: 32px;
     animation-delay: -0.12s;
-  }
-  .lds-facebook div:nth-child(3) {
+}
+.lds-facebook div:nth-child(3) {
     left: 56px;
     animation-delay: 0;
-  }
-  @keyframes lds-facebook {
+}
+
+@keyframes lds-facebook {
     0% {
-      top: 8px;
-      height: 64px;
+        top: 8px;
+        height: 64px;
     }
     50%, 100% {
-      top: 24px;
-      height: 32px;
+        top: 24px;
+        height: 32px;
     }
-  }  
-// Header ---
-header {    
+}
+
+header {
     position: relative;
     padding-bottom: 80px;
-    nav {
+    nav {        
+        box-shadow: 0px 3px 5px #000;
         width: 100%;
         z-index: 10;
         .logo {
@@ -72,7 +85,8 @@ header {
 
         // Settings User
         #user-settings{
-            left: -50px;
+            left: -68px;
+
             .figure-list {
                 z-index: -1;
                 background: $white;
@@ -106,19 +120,16 @@ header {
         box-shadow: 0px 3px 5px #000;
     }
 }
-// General Container ----
-.center {
-    @include center();
-}
+// General Container ---
 
 .tab-inicio {
     .view-main {
-        height: 70vh;
+        height: 90vh;
     }
+
     .title-inicio {
         text-align: center;
         text-shadow: 1px 1px 2px $dark;
-        margin-top: 0;
         h1 {
             font-size: 58px;
         }
@@ -126,21 +137,23 @@ header {
             font-size: 18px;
         }
     }
-    #svg-video {
-        width: 80%;
-        height: 80%;
+
+    // Video - main
+    #video-file {
+        border-radius: 1rem;
+        width: 100%;
+        height: 18rem;
     }
 
     @media screen and (min-width: 510px){
-        #svg-video {
-            width: 60%;
-            height: 60%;
+        #video-file {
+            width: 80%;
+            height: 20em;
         }
     }
 
     @media screen and (min-width: 992px){
         .title-inicio {
-            margin-top: 20%;
             margin-left: 50px;
             text-align: start;
             h1 {
@@ -148,15 +161,17 @@ header {
             }
             p {
                 font-size: 25px;
-            }   
+            }
         }
-        #svg-video {
-            width: 70%;
-            height: 70%;
+        #video-file {
+            width: 100%;
+            height: 25rem;
         }
     }
     
 }
+
+// Efencto Parallax  <- Libreria
 .parallax {
 	position: fixed;
 	top: 0;	
@@ -178,54 +193,160 @@ header {
 	z-index: -1;
 }
 
-// Glide ---
+// Inicio - Productos ---
+
 .container_productos {
     h2 {
-       font-size: 45px;
-    //    border-bottom: solid 2px $white; 
+       font-size: 35px;
+    }
+    @media screen and (min-width: 285px){
+        h2 {
+            font-size: 45px;
+        }
     }
     .card {
-        position: relative;
+        margin: 0 .5rem 0 .5rem;
+        width: 100%;
         overflow: hidden;
-        &:hover {
-            transform: scale(3em);
-        }
-        .filtro {
-            background: $dark;
-            position: absolute;
-            opacity: .5;
-            width: 100%;
-            height: 100%;
-            // &:hover {
-            //     opacity: 0;
-            // }
-        }
         .img__slide {
             display: block;
             height: 200px;
         }
     }
     
-    .glide__arrow {
-        padding: 0 10px;
-        font-size: 20px;    
-        position: absolute;    
-        border: none;
-        top: 45%;
-        background: $primary;
-        color: $white;
-        border-radius: 100%;
-        &:active {
-            padding: 0 8px;
+    // Swiper ---
+    .swiper-container{
+        height: 500px;
+        width: 95%;
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-pagination {
+            .swiper-pagination-bullet {
+                background: $white;
+                border-radius: 0%;
+                width: 20px;
+                height: 5px;
+            }
+        }
+        
+        .swiper-button-prev, .swiper-button-next {
+            color: $white;
+            opacity: 0;
+        }
+        
+        @media screen and (min-width: 910px) {
+            .swiper-button-prev, .swiper-button-next {
+                opacity: 1;
+            }
         }
     }
-    
-    .glide__arrow--right {
-        right: 0;
-    }
-    .glide__arrow--left {
-        left: 0;
+    @media screen and (min-width: 910px) {
+        .swiper-container {
+            width: 75%;
+        }
     }
 }
+
+// Inicio - Noticias ---
+
+.container_noticias {
+    .content-noticias {
+        background: rgba($color: $white, $alpha: .5);
+        backdrop-filter: blur(10px);
+        border-radius: 5px;
+        
+        .noticia-img {
+            overflow: hidden;
+            position: relative;
+            border-radius: 5px;
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.filtro {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $dark;
+    opacity: .8;
+    &:hover {
+        opacity: 0;
+    }
+}
+
+// Inico - Ubicación ---
+// .container_ubicacion {
+//     box-shadow: 0 -20px 20px 15px $dark;
+// }
+
+// Nosotros ---
+
+.selectet {
+    transition: all .5s;
+    &:hover {
+        color: $white;
+        background: $primary;
+        border-radius: 10px;
+    }
+}
+
+// Socios ---
+
+.container_socios {
+    .img-socios {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 19rem;
+        .nom-socio {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($color: $primary, $alpha: .7);
+            backdrop-filter: blur(8px);
+
+            &:hover {
+                background: none;
+                text-shadow: 1px 1px 2px $dark;
+            }
+        }
+    }
+    .card-dist {
+        width: 25rem;
+    }
+}
+
+// Productos
+
+.container_productos {
+    .col-md-4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        .content-prod{
+            background: $primary;
+            border-radius: 8px;
+            width: 20rem;
+            padding: 1rem 0 1rem 0;
+            text-align: start;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
 // Imports ----------
 @import"../node_modules/bootstrap/scss/bootstrap.scss";

@@ -1,4 +1,5 @@
 window.onload = function(){
+	$("#loader").removeClass("loader");	
 	$("#loader").fadeOut();
 	$("body").removeClass("overflow-hidden");
 }
@@ -34,30 +35,58 @@ $("ul.tabs li a").on("click", function(){
 	return false;
 });
 
-// Slide - Glide <- Libreria
-const config = {
-	type: 'carousel',
-	startAt: 1,
-	perView: 4,
+// Slide - Swiper <- Libreria
+var swiper = new Swiper('.swiper-container', {
+	// Optional parameters
+	spaceBetween: 31,
+	loop: true,
+	centeredSlides: true,
+	effect: "coverflow",
+
+	// If we need pagination
+	pagination: {
+	el: '.swiper-pagination',
+	clickable: true,
+	},
+
+	// Navigation arrows
+	navigation: {
+	nextEl: '.swiper-button-next',
+	prevEl: '.swiper-button-prev',
+	},
+	// Breakpoints
 	breakpoints: {
-		600: {
-			perView: 1
+		510: {
+		slidesPerView: 1,
 		},
-		840: {
-			perView: 2
+		668: {
+		slidesPerView: 2,
 		},
 		1024: {
-			perView: 3
-		}
-	}
-}
-new Glide('.glide', config).mount();
+		slidesPerView: 3,
+		},
+	},
+	// Effects
+	coverflowEffect: {
+		rotate: 0,
+		stretch: 0,
+		depth: 100,
+		modifier: 1,
+		slideShadows: false,
+	},
+});
 
-// Cards - Productos
-function mOver(obj) {
-	$(".filtro").css("opacity", "0");
-}
-  
-function mOut(obj) {
-	$(".filtro").css("opacity", ".8");
-}
+// Ubicación - Api - Google Maps	
+// function initMap() {
+// 	var coord = {lat:-34.5956145 , lng:-58.4431949};
+	
+// 	var map = new google.maps.Map(document.getElementById('map'),{
+// 		center: coord,
+// 		zoom:10,
+// 		mapID: 'e5aa844c24f35d3d'
+// 	});
+// 	var marker = new google.maps.Marker({
+// 		position: coord,
+// 		map: map
+// 	});
+// }
